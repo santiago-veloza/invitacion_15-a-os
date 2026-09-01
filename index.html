@@ -356,13 +356,6 @@ section:first-of-type{border-top:none;}
   font-family:var(--font-display); font-style:italic; color:var(--gold-ink);
   font-size:clamp(1rem,2.4vw,1.3rem); margin-top:10px;
 }
-.hero-date-pill{
-  margin-top:30px; display:inline-flex; gap:10px; align-items:center;
-  border:1px solid var(--line); padding:10px 22px; border-radius:999px;
-  background:rgba(14,122,71,.05); backdrop-filter:blur(4px);
-  font-size:.85rem; letter-spacing:.08em;
-}
-.hero-date-pill .dot{width:6px; height:6px; border-radius:50%; background:var(--neon); box-shadow:0 0 8px var(--neon);}
 .hero-quote{
   max-width:520px; margin:38px auto 0; font-style:italic; color:var(--text-dim); font-size:.95rem;
 }
@@ -556,7 +549,6 @@ footer{text-align:center; padding:28px; color:var(--text-dim); font-size:.7rem; 
         <div class="eyebrow hero-eyebrow">Mis quince años</div>
         <h1 class="hero-name">Paula Camila</h1>
         <p class="hero-sub">"Hoy florece un sueño"</p>
-        <div class="hero-date-pill"><span class="dot"></span> Sábado 26 de septiembre de 2026</div>
         <p class="hero-quote" id="officiantQuote">
           Con la bendición de Dios y el cariño de mi familia, llegó el día de celebrar
           que la niña que fui se convierte en la mujer que seré.
@@ -890,8 +882,6 @@ function formatTimeEs(dateObj){
   const eventDate = new Date(CONFIG.eventDateISO);
   const dateText = formatDateEs(eventDate);
   const timeText = formatTimeEs(eventDate);
-  const heroPill = document.querySelector('.hero-date-pill');
-  if (heroPill) heroPill.innerHTML = `<span class="dot"></span> ${dateText}`;
   const countdownDate = document.getElementById('countdownDate');
   if (countdownDate) countdownDate.textContent = `${dateText} · ${timeText}`;
 })();
