@@ -872,9 +872,8 @@ function formatTimeEs(dateObj){
 (function syncDateTexts(){
   const eventDate = new Date(CONFIG.eventDateISO);
   const dateText = formatDateEs(eventDate);
-  const timeText = formatTimeEs(eventDate);
   const countdownDate = document.getElementById('countdownDate');
-  if (countdownDate) countdownDate.textContent = `${dateText} · ${timeText}`;
+  if (countdownDate) countdownDate.textContent = dateText;
 })();
 
 /* ============================================================
