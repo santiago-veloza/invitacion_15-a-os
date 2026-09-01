@@ -18,8 +18,9 @@
   --neon:#0E7A47;
   --neon-soft:#0B5B37;
   --gold:#C9A24E;
+  --gold-ink:#7C611C;
   --cream:#23281F;
-  --text-dim:#6E7568;
+  --text-dim:#5E6458;
   --line:rgba(14,122,71,0.22);
   --shadow-neon:0 0 14px rgba(14,122,71,.22), 0 0 30px rgba(14,122,71,.10);
   --radius-lg:28px;
@@ -52,7 +53,7 @@ body{
 }
 .bg-15{
   z-index:-1;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ctext x='10' y='45' font-family='Georgia,serif' font-size='26' fill='rgba(14,122,71,0.34)' transform='rotate(-14 10 45)'%3E15%3C/text%3E%3Ctext x='85' y='115' font-family='Georgia,serif' font-size='20' fill='rgba(201,162,78,0.30)' transform='rotate(10 85 115)'%3E15%3C/text%3E%3C/svg%3E") repeat;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ctext x='10' y='45' font-family='Georgia,serif' font-size='26' fill='rgba(14,122,71,0.34)' transform='rotate(-14 10 45)'%3E15%3C/text%3E%3Ctext x='85' y='115' font-family='Georgia,serif' font-size='20' fill='rgba(124,97,28,0.26)' transform='rotate(10 85 115)'%3E15%3C/text%3E%3C/svg%3E") repeat;
 }
 
 h1,h2,h3{font-family:var(--font-display); margin:0; font-weight:600;}
@@ -112,7 +113,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   overflow-y:auto; overflow-x:hidden; padding:40px 20px;
   /* mismo marco floral + "15" animados (van derivando lentamente) que el sitio */
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ctext x='10' y='45' font-family='Georgia,serif' font-size='26' fill='rgba(14,122,71,0.34)' transform='rotate(-14 10 45)'%3E15%3C/text%3E%3Ctext x='85' y='115' font-family='Georgia,serif' font-size='20' fill='rgba(201,162,78,0.30)' transform='rotate(10 85 115)'%3E15%3C/text%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ctext x='10' y='45' font-family='Georgia,serif' font-size='26' fill='rgba(14,122,71,0.34)' transform='rotate(-14 10 45)'%3E15%3C/text%3E%3Ctext x='85' y='115' font-family='Georgia,serif' font-size='20' fill='rgba(124,97,28,0.26)' transform='rotate(10 85 115)'%3E15%3C/text%3E%3C/svg%3E"),
     linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,.12)),
     url("https://res.cloudinary.com/dwdnfpr8i/image/upload/f_auto,q_auto,w_1200/v1788282688/descarga_rhouob.png"),
     var(--bg-deep);
@@ -352,7 +353,7 @@ section:first-of-type{border-top:none;}
   line-height:1;
 }
 .hero-sub{
-  font-family:var(--font-display); font-style:italic; color:var(--gold);
+  font-family:var(--font-display); font-style:italic; color:var(--gold-ink);
   font-size:clamp(1rem,2.4vw,1.3rem); margin-top:10px;
 }
 .hero-date-pill{
@@ -422,7 +423,7 @@ section:first-of-type{border-top:none;}
 .countdown-date{
   text-align:center; margin-top:26px;
   font-family:var(--font-display); font-style:italic;
-  color:var(--gold); font-size:1rem; letter-spacing:.02em;
+  color:var(--gold-ink); font-size:1rem; letter-spacing:.02em;
 }
 
 /* ============================================================
@@ -441,7 +442,7 @@ section:first-of-type{border-top:none;}
   box-shadow:0 0 12px rgba(14,122,71,.5);
   display:flex; align-items:center; justify-content:center; font-size:1rem; color:#06210F;
 }
-.detail-item h3{font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;}
+.detail-item h3{font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; color:var(--neon-soft); margin-bottom:4px;}
 .detail-item p{font-size:.92rem; color:var(--cream);}
 .detail-item a.btn-link{
   display:inline-block; margin-top:8px; font-size:.78rem; color:var(--neon-soft);
@@ -454,7 +455,7 @@ section:first-of-type{border-top:none;}
 .timeline{margin-top:36px; max-width:340px; margin-left:auto; margin-right:auto; text-align:center;}
 .t-item{padding:16px 0; position:relative;}
 .t-item + .t-item{border-top:1px solid var(--line);}
-.t-item .time{font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold);}
+.t-item .time{font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--neon-soft);}
 .t-item h3{font-size:1.05rem; margin-top:4px; color:var(--cream); font-weight:500; font-family:var(--font-body);}
 
 /* ============================================================
@@ -498,7 +499,7 @@ section:first-of-type{border-top:none;}
   background:rgba(14,122,71,.03);
 }
 .gift-card .ic{font-size:1.6rem; margin-bottom:10px; filter:drop-shadow(0 0 8px rgba(14,122,71,.5));}
-.gift-card h3{font-size:.92rem; color:var(--gold); margin-bottom:6px;}
+.gift-card h3{font-size:.92rem; color:var(--neon-soft); margin-bottom:6px;}
 .gift-card p{font-size:.82rem;}
 .gift-card a.btn-link{display:inline-block; margin-top:12px; font-size:.78rem; color:var(--neon-soft); border-bottom:1px solid var(--line); text-decoration:none;}
 
