@@ -761,7 +761,6 @@ const envelopeScreen = document.getElementById('envelope-screen');
 const envelopeWrap = document.getElementById('envelopeWrap');
 
 function openEnvelope(){
-  tryPlayMusic(); // la música arranca con este primer toque, no al terminar la animación
   envelopeWrap.classList.add('open');
   setTimeout(() => {
     envelopeScreen.classList.add('hidden');
@@ -771,20 +770,12 @@ function openEnvelope(){
 envelopeWrap.addEventListener('click', openEnvelope);
 envelopeWrap.addEventListener('keypress', e => { if(e.key === 'Enter' || e.key === ' ') openEnvelope(); });
 
-// Cualquier primer gesto del invitado (aunque toque fuera del sobre) inicia la música
-let musicKicked = false;
-function kickMusic(){ if (musicKicked) return; musicKicked = true; tryPlayMusic(); }
-['pointerdown','touchstart','keydown','click'].forEach(ev =>
-  window.addEventListener(ev, kickMusic, { once:true, passive:true })
-);
-
 /* ============================================================
    REPRODUCTOR DE MÚSICA — canción de YouTube (oculta, solo audio)
    ============================================================ */
 const musicBtn = document.getElementById('music-toggle');
 let ytPlayer = null;
 let ytReady = false;
-let pendingPlay = false;
 
 if (!CONFIG.musicYouTubeId) {
   musicBtn.style.display = 'none';
@@ -795,7 +786,7 @@ if (!CONFIG.musicYouTubeId) {
       videoId: CONFIG.musicYouTubeId,
       playerVars: { autoplay: 0, controls: 0, playsinline: 1, loop: 1, playlist: CONFIG.musicYouTubeId },
       events: {
-        onReady: () => { ytReady = true; if (pendingPlay) ytPlayer.playVideo(); },
+        onReady: () => { ytReady = true; },
         onStateChange: e => {
           if (e.data === YT.PlayerState.PLAYING) musicBtn.classList.remove('paused');
           if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) musicBtn.classList.add('paused');
@@ -805,7 +796,7 @@ if (!CONFIG.musicYouTubeId) {
   };
 }
 function tryPlayMusic(){
-  if (!ytReady) { pendingPlay = true; return; } // aún carga la API: se reproduce en onReady
+  if (!ytReady) return;
   ytPlayer.playVideo();
 }
 musicBtn.addEventListener('click', () => {
