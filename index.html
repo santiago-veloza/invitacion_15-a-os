@@ -451,16 +451,11 @@ section:first-of-type{border-top:none;}
 /* ============================================================
    SECCIÓN 5 — PROGRAMA
    ============================================================ */
-.timeline{position:relative; margin-top:40px; padding-left:26px;}
-.timeline::before{content:''; position:absolute; left:6px; top:4px; bottom:4px; width:1px; background:linear-gradient(180deg,var(--neon),transparent);}
-.t-item{position:relative; padding-bottom:26px;}
-.t-item:last-child{padding-bottom:0;}
-.t-item::before{
-  content:''; position:absolute; left:-26px; top:4px; width:11px; height:11px; border-radius:50%;
-  background:var(--neon); box-shadow:0 0 10px rgba(14,122,71,.8);
-}
+.timeline{margin-top:36px; max-width:340px; margin-left:auto; margin-right:auto; text-align:center;}
+.t-item{padding:16px 0; position:relative;}
+.t-item + .t-item{border-top:1px solid var(--line);}
 .t-item .time{font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold);}
-.t-item h3{font-size:1.05rem; margin-top:3px; color:var(--cream); font-weight:500; font-family:var(--font-body);}
+.t-item h3{font-size:1.05rem; margin-top:4px; color:var(--cream); font-weight:500; font-family:var(--font-body);}
 
 /* ============================================================
    SECCIÓN 6 — RSVP
