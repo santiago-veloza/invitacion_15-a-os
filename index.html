@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XV Años · Paula Camila</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E7A47'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23fff' text-anchor='middle'%3E15%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -776,7 +777,7 @@ if (!CONFIG.musicYouTubeId) {
     ytPlayer = new YT.Player('yt-player', {
       height: '0', width: '0',
       videoId: CONFIG.musicYouTubeId,
-      playerVars: { autoplay: 0, controls: 0, playsinline: 1, loop: 1, playlist: CONFIG.musicYouTubeId },
+      playerVars: { autoplay: 0, controls: 0, playsinline: 1, loop: 1, playlist: CONFIG.musicYouTubeId, origin: location.origin },
       events: {
         onReady: () => { ytReady = true; },
         onStateChange: e => {
@@ -908,7 +909,6 @@ function formatTimeEs(dateObj){
 
 /* ============================================================
    LLUVIA DORADA — partículas doradas cayendo junto a la muñeca
-   (se aplica tanto al sobre como al hero)
    ============================================================ */
 (function setupGoldRain(){
   const containers = document.querySelectorAll('.gold-rain');
