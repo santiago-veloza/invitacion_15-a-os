@@ -48,7 +48,6 @@ body{
 .bg-frame{
   z-index:-2;
   background:
-    linear-gradient(rgba(255,255,255,.45), rgba(255,255,255,.45)),
     url("https://res.cloudinary.com/dwdnfpr8i/image/upload/f_auto,q_auto,w_1200/v1788282688/descarga_rhouob.png") center center / cover no-repeat,
     var(--bg-deep);
 }
@@ -115,19 +114,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   /* mismo marco floral + "15" animados (van derivando lentamente) que el sitio */
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ctext x='10' y='45' font-family='Georgia,serif' font-size='26' fill='rgba(14,122,71,0.34)' transform='rotate(-14 10 45)'%3E15%3C/text%3E%3Ctext x='85' y='115' font-family='Georgia,serif' font-size='20' fill='rgba(124,97,28,0.26)' transform='rotate(10 85 115)'%3E15%3C/text%3E%3C/svg%3E"),
-    linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,.12)),
     url("https://res.cloudinary.com/dwdnfpr8i/image/upload/f_auto,q_auto,w_1200/v1788282688/descarga_rhouob.png"),
     var(--bg-deep);
-  background-repeat:repeat, no-repeat, no-repeat, no-repeat;
-  background-position:0 0, center, center center, center;
-  background-size:auto, auto, cover, auto;
+  background-repeat:repeat, no-repeat, no-repeat;
+  background-position:0 0, center center, center;
+  background-size:auto, cover, auto;
   animation:envNumbersDrift 26s linear infinite;
   transition:opacity .9s ease, visibility .9s ease;
 }
 #envelope-screen.hidden{opacity:0; visibility:hidden; pointer-events:none;}
 @keyframes envNumbersDrift{
-  0%{background-position:0 0, center, center center, center;}
-  100%{background-position:150px 150px, center, center center, center;}
+  0%{background-position:0 0, center center, center;}
+  100%{background-position:150px 150px, center center, center;}
 }
 
 /* Lluvia dorada cubriendo toda la pantalla de bienvenida, cayendo hasta abajo del todo */
@@ -822,12 +820,7 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 /* ============================================================
-   RSVP — se envía por WhatsApp al organizador
-   Al dar "Enviar confirmación", se arma un mensaje con los datos
-   del formulario y se abre WhatsApp (wa.me) hacia el número de
-   la organizadora, con el mensaje ya redactado. También se
-   guarda una copia en el localStorage del navegador del invitado
-   como respaldo local (no llega a ningún servidor).
+
    ============================================================ */
 const rsvpForm = document.getElementById('rsvpForm');
 const rsvpConfirm = document.getElementById('rsvpConfirm');
