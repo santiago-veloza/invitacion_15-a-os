@@ -34,17 +34,27 @@
 html{scroll-behavior:smooth;}
 body{
   margin:0;
-  /* Muchos "15" pequeños repetidos de fondo, encima del degradado verde,
-     para que las secciones vacías no se vean solo en verde plano */
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ctext x='10' y='45' font-family='Georgia,serif' font-size='26' fill='rgba(14,122,71,0.34)' transform='rotate(-14 10 45)'%3E15%3C/text%3E%3Ctext x='85' y='115' font-family='Georgia,serif' font-size='20' fill='rgba(201,162,78,0.30)' transform='rotate(10 85 115)'%3E15%3C/text%3E%3C/svg%3E"),
-    radial-gradient(1200px 600px at 50% -10%, var(--bg-mid-2), transparent 60%),
-    linear-gradient(180deg,var(--bg-deep),#FBF9F3 100%);
-  background-repeat:repeat, no-repeat, no-repeat;
+  background:var(--bg-deep);
   color:var(--cream);
   font-family:var(--font-body);
   overflow-x:hidden;
 }
+/* ============================================================
+   FONDO — marco floral fijo + patron de "15" encima
+   ============================================================ */
+.bg-layer{position:fixed; inset:0; pointer-events:none;}
+.bg-frame{
+  z-index:-2;
+  background:
+    linear-gradient(rgba(255,255,255,.45), rgba(255,255,255,.45)),
+    url("https://res.cloudinary.com/dwdnfpr8i/image/upload/f_auto,q_auto,w_1200/v1788282688/descarga_rhouob.png") center center / cover no-repeat,
+    var(--bg-deep);
+}
+.bg-15{
+  z-index:-1;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ctext x='10' y='45' font-family='Georgia,serif' font-size='26' fill='rgba(14,122,71,0.34)' transform='rotate(-14 10 45)'%3E15%3C/text%3E%3Ctext x='85' y='115' font-family='Georgia,serif' font-size='20' fill='rgba(201,162,78,0.30)' transform='rotate(10 85 115)'%3E15%3C/text%3E%3C/svg%3E") repeat;
+}
+
 h1,h2,h3{font-family:var(--font-display); margin:0; font-weight:600;}
 p{line-height:1.7; color:var(--text-dim); margin:0;}
 a{color:var(--neon-soft);}
@@ -100,19 +110,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   position:fixed; inset:0; z-index:999;
   display:flex; align-items:center; justify-content:center;
   overflow-y:auto; overflow-x:hidden; padding:40px 20px;
-  /* mismos "15" chicos que el fondo del sitio, pero animados (van derivando lentamente) */
+  /* mismo marco floral + "15" animados (van derivando lentamente) que el sitio */
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ctext x='10' y='45' font-family='Georgia,serif' font-size='26' fill='rgba(14,122,71,0.34)' transform='rotate(-14 10 45)'%3E15%3C/text%3E%3Ctext x='85' y='115' font-family='Georgia,serif' font-size='20' fill='rgba(201,162,78,0.30)' transform='rotate(10 85 115)'%3E15%3C/text%3E%3C/svg%3E"),
-    radial-gradient(900px 500px at 50% 40%, var(--bg-mid-2), var(--bg-deep) 70%);
-  background-repeat:repeat, no-repeat;
-  background-position:0 0, center;
+    linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,.12)),
+    url("https://res.cloudinary.com/dwdnfpr8i/image/upload/f_auto,q_auto,w_1200/v1788282688/descarga_rhouob.png"),
+    var(--bg-deep);
+  background-repeat:repeat, no-repeat, no-repeat, no-repeat;
+  background-position:0 0, center, center center, center;
+  background-size:auto, auto, cover, auto;
   animation:envNumbersDrift 26s linear infinite;
   transition:opacity .9s ease, visibility .9s ease;
 }
 #envelope-screen.hidden{opacity:0; visibility:hidden; pointer-events:none;}
 @keyframes envNumbersDrift{
-  0%{background-position:0 0, center;}
-  100%{background-position:150px 150px, center;}
+  0%{background-position:0 0, center, center center, center;}
+  100%{background-position:150px 150px, center, center center, center;}
 }
 
 /* Lluvia dorada cubriendo toda la pantalla de bienvenida, cayendo hasta abajo del todo */
@@ -507,6 +520,10 @@ footer{text-align:center; padding:28px; color:var(--text-dim); font-size:.7rem; 
 </style>
 </head>
 <body>
+
+<!-- Fondo: marco floral fijo + patron de "15" encima -->
+<div class="bg-layer bg-frame" aria-hidden="true"></div>
+<div class="bg-layer bg-15" aria-hidden="true"></div>
 
 <!-- ================= SOBRE ANIMADO ================= -->
 <div id="envelope-screen">
